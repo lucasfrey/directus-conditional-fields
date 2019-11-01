@@ -9,7 +9,7 @@
     mixins: [mixin],
     mounted() {
       // Fetch block options
-        const { values } = this._props
+      const { values } = this._props
 
       // Start block system
       // Basically we hide/show field relevant to the type of blocks

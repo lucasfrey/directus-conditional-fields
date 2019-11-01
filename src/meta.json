@@ -1,5 +1,5 @@
 {
-  "name": "block-interface",
+  "name": "directus-conditional-fields",
   "version": "1.0.0",
   "icon": "person",
   "types": ["string"],
