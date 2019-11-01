@@ -1,5 +1,7 @@
 # Directus conditional fields
 
+![Directus conditional fields](https://raw.githubusercontent.com/lucasfrey/directus-conditional-fields/master/directus-conditional-fields.gif "Directus conditional fields")
+
 Conditional fields is a custom extension that allow you to hide and show fields in a collection called `block` (for now).
 In order to work, you will need to create a collection with these parameters:
 
