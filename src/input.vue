@@ -9,19 +9,14 @@
     mixins: [mixin],
     mounted() {
       // Fetch block options
-      const { values } = this._props
-
-      // Start block system
-      // Basically we hide/show field relevant to the type of blocks
-
+      const { values, fields } = this._props
       const fieldsNode = document.querySelectorAll('[data-field]');
-      const interface = document.querySelector('[data-field="block_interface"]');
+      const conditionalInterface = document.querySelector('[data-field="conditional_interface"]');
       const typeField = document.querySelector('[data-field=type]');
-
       const options = this.getOptions();
 
       // hide this custom interface
-      if (interface) interface.style.display = 'none'
+      if (conditionalInterface) conditionalInterface.style.display = 'none'
 
       // hide all fields until the user choose a type
       this.hideAll(fieldsNode)
@@ -62,22 +57,25 @@
         }
       },
       getOptions() {
-        // Fetch block options
+        // Fetch options
         const { fields } = this._props
+        const collectionName = this.getCollectionName(this.$parent.collection);
 
-        // build options
-        let blockOpts = [];
+        // Build options
+        let options = [];
 
         Object.keys(fields).forEach(( key, index ) => {
-            if (key.startsWith('block_') && key !== "block_interface") {
-            let splitKeys = key.split("_");
+            if (key.startsWith(`${collectionName}_`) && key !== "conditional_interface") {
+              const splitKeys = key.split("_");
+              const type = splitKeys[1];
 
-            if (!blockOpts[splitKeys[1]]) blockOpts[splitKeys[1]] = []
-                blockOpts[splitKeys[1]].push(key)
+              if (!options[type]) options[type] = []
+
+              options[type].push(key)
             }
         });
 
-        return blockOpts;
+        return options;
       },
       showFields(fieldsNode) {
         if (fieldsNode) {
@@ -89,6 +87,10 @@
             }
           }
         }
+      },
+      getCollectionName(collection) {
+        // If the collection name ends with an 's', we use the singular name
+        return collection.endsWith('s') ? collection.substring(0, collection.length - 1) : collection
       }
     }
   }

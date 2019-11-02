@@ -1,17 +1,22 @@
 # Directus conditional fields
 
+Conditional fields is a custom extension that allow you to hide and show fields in a collection
+
 ![Directus conditional fields](https://raw.githubusercontent.com/lucasfrey/directus-conditional-fields/master/directus-conditional-fields.gif "Directus conditional fields")
 
-Conditional fields is a custom extension that allow you to hide and show fields in a collection called `block` (for now).
-In order to work, you will need to create a collection with these parameters:
-
+# Usage
 ### Type dropdown
-The `type` dropdown will host the event listener that will trigger the hide and show fields
+Add a `type` dropdown that will host the event listener and will trigger the hide and show fields
+e.g:
+Type:
+	- editorial
+	- image
+	- quote
+	- ...
 
-### Fields naming convention
+### Field naming convention
 Once you have setup your type field, you need to name your fields like the above
-
-*NOTE:* currently the collection fields need to be named `block`, but we could easily update that in the future
+(example with a collection named `blocks`, with `blocks`, you will need to start your field name with the singular `block`)
 
 | collection | type      | field   |
 |------------|-----------|---------|
@@ -23,10 +28,12 @@ Once you have setup your type field, you need to name your fields like the above
 With that config, if you select the type `editorial` in the dropdown, only the `text` and `intro` fields will appear on the screen.
 
 ### Import conditional-fields into the collection
-Once you have setup your fields, you can then just add the conditional-fields field so the javascript can do his job on the administration page.
+Once you have setup your fields, you can then just add the `conditional-fields` field so the javascript can do his job on the administration page.
+*NOTE*: you will have to name the field `conditional-fields`
 
+And that's it !
 
-## Usage
+## Build
 If you update this module, don't forget to run the production build like this :
 
 ```

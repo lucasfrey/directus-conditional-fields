@@ -1,7 +1,7 @@
 {
   "name": "directus-conditional-fields",
   "version": "1.0.0",
-  "description": "Directus conditional fields",
+  "description": "Conditional fields interface for Directus",
   "main": "",
   "scripts": {
     "build": "directus-extensions build",
