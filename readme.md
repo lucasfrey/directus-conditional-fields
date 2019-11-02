@@ -6,7 +6,7 @@ Conditional fields is a custom extension that allow you to hide and show fields 
 
 # Usage
 ### Type dropdown
-Add a `type` dropdown that will host the event listener and will trigger the hide and show fields
+Add a `type` dropdown to your collection. It will host the event listener and will trigger the hide and show fields
 e.g:
 Type:
 	- editorial
@@ -15,8 +15,8 @@ Type:
 	- ...
 
 ### Field naming convention
-Once you have setup your type field, you need to name your fields like the above
-(example with a collection named `blocks`, with `blocks`, you will need to start your field name with the singular `block`)
+Once you have setup your `type` field, you need to name your fields like the above
+(example with a collection named `blocks` you will need to start your field name with the singular `block`)
 
 | collection | type      | field   |
 |------------|-----------|---------|
@@ -24,6 +24,14 @@ Once you have setup your type field, you need to name your fields like the above
 | block      | editorial | intro   |
 | block      | image     | picture |
 | block      | image     | alt     |
+
+So the fields in the database should be like
+```
+block_editorial_text
+block_editorial_intro
+block_image_picture
+block_image_alt
+```
 
 With that config, if you select the type `editorial` in the dropdown, only the `text` and `intro` fields will appear on the screen.
 
