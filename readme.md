@@ -46,6 +46,7 @@ With that config, if you select the type `editorial` in the dropdown, only the `
 
 ### Import conditional-fields into the collection
 Once you have setup your fields, you can then just add the `conditional-fields` field so the javascript can do his job on the administration page.
+
 *NOTE*: you will have to name the field `conditional_interface`
 
 And that's it !
