@@ -42,7 +42,7 @@ block_global_title
 block_global_slug
 ```
 
-With that config, if you select the type `editorial` in the dropdown, only the `text` and `intro` fields will appear on the screen.
+With that config, if you select the type `editorial` in the dropdown, only the `title`, `slug`, `text` and `intro` fields will appear on the screen.
 
 ### Import conditional-fields into the collection
 Once you have setup your fields, you can then just add the `conditional-fields` field so the javascript can do his job on the administration page.
