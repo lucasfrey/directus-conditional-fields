@@ -25,12 +25,21 @@ Once you have setup your `type` field, you need to name your fields like the abo
 | block      | image     | picture |
 | block      | image     | alt     |
 
+> Also you can include `global` fields, that will be visible for any type
+
+| collection | type      | field   |
+|------------|-----------|---------|
+| block      | global	 | title   |
+| block      | global	 | slug	   |
+
 So the fields in the database should be like
 ```
 block_editorial_text
 block_editorial_intro
 block_image_picture
 block_image_alt
+block_global_title
+block_global_slug
 ```
 
 With that config, if you select the type `editorial` in the dropdown, only the `text` and `intro` fields will appear on the screen.
