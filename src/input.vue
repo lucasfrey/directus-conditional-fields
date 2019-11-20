@@ -52,7 +52,7 @@
           let field = fieldsNode[i].dataset.field
           if (field !== 'status' &&
           field !== 'type' &&
-          field !== 'title' )
+          field.key.split("_")[1] !== 'global' )
           fieldsNode[i].style.display = 'none'
         }
       },
