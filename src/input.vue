@@ -9,7 +9,7 @@
     mixins: [mixin],
     mounted() {
       // Fetch block options
-      const { values, fields } = this._props
+      const { values } = this._props
       const fieldsNode = document.querySelectorAll('[data-field]');
       const conditionalInterface = document.querySelector('[data-field="conditional_interface"]');
       const typeField = document.querySelector('[data-field=type]');
@@ -47,12 +47,12 @@
         }
       },
       hideAll(fieldsNode) {
-        // Hide everything except the status bar, title and type
+        // Hide everything except the status bar, type and global fields
         for (let i = 0; i < fieldsNode.length; i++) {
           let field = fieldsNode[i].dataset.field
           if (field !== 'status' &&
           field !== 'type' &&
-          field !== 'title' )
+          field.split("_")[1] !== 'global' )
           fieldsNode[i].style.display = 'none'
         }
       },
