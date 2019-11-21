@@ -10,13 +10,10 @@
     mounted() {
       // Fetch block options
       const { values } = this._props
+      
       const fieldsNode = document.querySelectorAll('[data-field]');
-      const conditionalInterface = document.querySelector('[data-field="conditional_interface"]');
       const typeField = document.querySelector('[data-field=type]');
       const options = this.getOptions();
-
-      // hide this custom interface
-      if (conditionalInterface) conditionalInterface.style.display = 'none'
 
       // hide all fields until the user choose a type
       this.hideAll(fieldsNode)
@@ -47,13 +44,14 @@
         }
       },
       hideAll(fieldsNode) {
-        // Hide everything except the status bar, type and global fields
+        const collectionName = this.getCollectionName(this.$parent.collection);
+
+        // Hide all the fields that start with the collection name + the conditional_interface
         for (let i = 0; i < fieldsNode.length; i++) {
           let field = fieldsNode[i].dataset.field
-          if (field !== 'status' &&
-          field !== 'type' &&
-          field.split("_")[1] !== 'global' )
-          fieldsNode[i].style.display = 'none'
+
+          if (field.startsWith(`${collectionName}_`) || field === 'conditional_interface')
+            fieldsNode[i].style.display = 'none'
         }
       },
       getOptions() {
@@ -65,14 +63,14 @@
         let options = [];
 
         Object.keys(fields).forEach(( key, index ) => {
-            if (key.startsWith(`${collectionName}_`) && key !== "conditional_interface") {
-              const splitKeys = key.split("_");
-              const type = splitKeys[1];
+          if (key.startsWith(`${collectionName}_`) && key !== "conditional_interface") {
+            const splitKeys = key.split("_");
+            const type = splitKeys[1];
 
-              if (!options[type]) options[type] = []
+            if (!options[type]) options[type] = []
 
-              options[type].push(key)
-            }
+            options[type].push(key)
+          }
         });
 
         return options;
@@ -82,9 +80,7 @@
           for (let i = 0; i < fieldsNode.length; i++) {
             let field = document.querySelector('[data-field=' + fieldsNode[i] + ']');
 
-            if (field) {
-              field.style.display = 'block'
-            }
+            if (field) field.style.display = 'block';
           }
         }
       },
