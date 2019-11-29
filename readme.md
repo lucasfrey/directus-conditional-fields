@@ -42,13 +42,18 @@ Once you have setup your fields, you can then just add the `conditional-fields` 
 
 And that's it !
 
+## Usage
+You can use the generated build file from the `/dist` folder and drop it directly into your Directus custom folder, like this :
+`public/extensions/custom/interfaces/directus-conditional-fields`
+
 ## Build
-If you update this module, don't forget to run the production build like this :
+If you want to update this module, don't forget to run the production build like this :
 
 ```
 npm run build
 ```
 
 And to drop all the files from `directus-conditional-fields/dist` into `public/extensions/custom/interfaces/directus-conditional-fields`
+
 
 Happy to hear for improvement, use the issues traker to open anything you want.
