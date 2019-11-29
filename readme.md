@@ -42,7 +42,7 @@ Once you have setup your fields, you can then just add the `conditional-fields` 
 
 And that's it !
 
-## Usage
+## Implementation
 You can use the generated build file from the `/dist` folder and drop it directly into your Directus custom folder, like this :
 `public/extensions/custom/interfaces/directus-conditional-fields`
 
